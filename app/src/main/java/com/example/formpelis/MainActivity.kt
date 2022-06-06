@@ -9,22 +9,24 @@ import com.example.formpelis.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var b:ActivityMainBinding
+    private lateinit var binding:ActivityMainBinding
     var year = "2000"
     var tipo = "Serie"
     var cat = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        b = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(b.root)
-        getSpinner(b.spYear)
-        b.rbSerie.setOnClickListener { tipo = "Serie" }
-        b.rbPelicula.setOnClickListener { tipo = "Película" }
-        b.btnSend.setOnClickListener { getAndSend() }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        getSpinner(binding.spYear)
+        binding.rbSerie.setOnClickListener { tipo = "Serie" }
+        binding.rbPelicula.setOnClickListener { tipo = "Película" }
+        binding.btnSend.setOnClickListener { getAndSend() }
     }
     fun getAndSend(){
         val intentResult = Intent(this, ResultActivity::class.java)
-        intentResult.putExtra("TITULO", b.etTitulo.text.toString())
+        intentResult.putExtra("TITULO", binding.etTitulo.text.toString())
         intentResult.putExtra("YEAR", year)
         intentResult.putExtra("TIPO", tipo)
         intentResult.putExtra("CATEGORIA", cat.toString())
@@ -60,57 +62,57 @@ class MainActivity : AppCompatActivity() {
 
             when (view.id) {
                 R.id.ckChild -> { if (checked) {
-                    checkCategory(b.ckChild.text.toString())
+                    checkCategory(binding.ckChild.text.toString())
                 } else {
-                    unCheckCategory(b.ckChild.text.toString())
+                    unCheckCategory(binding.ckChild.text.toString())
                 }
                 }
                 R.id.ckSciFi -> { if (checked) {
-                    checkCategory(b.ckSciFi.text.toString())
+                    checkCategory(binding.ckSciFi.text.toString())
                 } else {
-                    unCheckCategory(b.ckSciFi.text.toString())
+                    unCheckCategory(binding.ckSciFi.text.toString())
                 }
                 }
                 R.id.ckTerror -> { if (checked) {
-                    checkCategory(b.ckTerror.text.toString())
+                    checkCategory(binding.ckTerror.text.toString())
                 } else {
-                    unCheckCategory(b.ckTerror.text.toString())
+                    unCheckCategory(binding.ckTerror.text.toString())
                 }
                 }
                 R.id.ckThriller -> { if (checked) {
-                    checkCategory(b.ckThriller.text.toString())
+                    checkCategory(binding.ckThriller.text.toString())
                 } else {
-                    unCheckCategory(b.ckThriller.text.toString())
+                    unCheckCategory(binding.ckThriller.text.toString())
                 }
                 }
                 R.id.ckFantasy -> { if (checked) {
-                    checkCategory(b.ckFantasy.text.toString())
+                    checkCategory(binding.ckFantasy.text.toString())
                 } else {
-                    unCheckCategory(b.ckFantasy.text.toString())
+                    unCheckCategory(binding.ckFantasy.text.toString())
                 }
                 }
                 R.id.ckHumour -> { if (checked) {
-                    checkCategory(b.ckHumour.text.toString())
+                    checkCategory(binding.ckHumour.text.toString())
                 } else {
-                    unCheckCategory(b.ckHumour.text.toString())
+                    unCheckCategory(binding.ckHumour.text.toString())
                 }
                 }
                 R.id.ckAnimation -> { if (checked) {
-                    checkCategory(b.ckAnimation.text.toString())
+                    checkCategory(binding.ckAnimation.text.toString())
                 } else {
-                    unCheckCategory(b.ckAnimation.text.toString())
+                    unCheckCategory(binding.ckAnimation.text.toString())
                 }
                 }
                 R.id.ckDrama -> { if (checked) {
-                    checkCategory(b.ckDrama.text.toString())
+                    checkCategory(binding.ckDrama.text.toString())
                 } else {
-                    unCheckCategory(b.ckDrama.text.toString())
+                    unCheckCategory(binding.ckDrama.text.toString())
                 }
                 }
                 R.id.ckSpanish -> { if (checked) {
-                    checkCategory(b.ckSpanish.text.toString())
+                    checkCategory(binding.ckSpanish.text.toString())
                 } else {
-                    unCheckCategory(b.ckSpanish.text.toString())
+                    unCheckCategory(binding.ckSpanish.text.toString())
                 }
                 }
 
